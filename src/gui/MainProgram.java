@@ -83,7 +83,11 @@ public class MainProgram {
                     }
                     break;
                 case 6:
-                    productBusiness.showProductListByPriceAndName();
+                    if (!modified) {
+                        productBusiness.showProductListByPriceAndName();
+                    } else {
+                        Utils.display("You already have modified program!!! Need to save to print out!!!");
+                    }
                     break;
                 case 7:
                     exit = Utils.getString("Do you want to exit? (Y/N)");

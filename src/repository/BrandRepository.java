@@ -79,14 +79,14 @@ public class BrandRepository extends HashMap<String, Brand> implements I_CRUD<St
         }
         return result;
     }
-    // Đọc dữ liệu từ file và lưu vào Repository
+
     public void readDataFromFile(String fileName) {
         try {
             File f = new File(fileName);
             if (!f.exists()) {
                 return;
             }
-            // Tạo luồng đọc dữ liệu
+
             FileReader fr = new FileReader(f);
             BufferedReader bfr = new BufferedReader(fr);
 
@@ -95,16 +95,16 @@ public class BrandRepository extends HashMap<String, Brand> implements I_CRUD<St
             while ((line = bfr.readLine()) != null) {
                 StringTokenizer stk = new StringTokenizer(line, ",");
 
-                // Cắt các thông tin thành phần
-                String _id = stk.nextToken();
-                String _name = stk.nextToken();
-                String _country = stk.nextToken();
 
-                // Tái tạo Java Object
-                Brand _br = new Brand(_id, _name, _country);
+                String id = stk.nextToken();
+                String name = stk.nextToken();
+                String country = stk.nextToken();
 
-                // Đưa object vào Repository
-                this.create(_br);
+
+                Brand br = new Brand(id, name, country);
+
+
+                this.create(br);
             }
 
             bfr.close();
@@ -120,13 +120,13 @@ public class BrandRepository extends HashMap<String, Brand> implements I_CRUD<St
             return;
         }
         try {
-            // Ghi file
+            
             File f = new File(fileName);
 
-            // Tạo ra luồng ghi file
+            
             FileWriter fw = new FileWriter(f);
 
-            // Tạo ra đối tượng ghi file xuống storage
+            
             PrintWriter pw = new PrintWriter(fw);
 
             for (Map.Entry<String, Brand> entry : this.entrySet()) {

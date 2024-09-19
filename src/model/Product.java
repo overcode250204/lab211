@@ -20,16 +20,6 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String brand_id, String category_id, int model_year, double list_price) {
-        this.name = name;
-        this.brand_id = brand_id;
-        this.category_id = category_id;
-        this.model_year = model_year;
-        this.list_price = list_price;
-    }
-    
-    
-
     public Product(String id, String name, String brand_id, String category_id, int model_year, double list_price) {
         this.id = id;
         this.name = name;

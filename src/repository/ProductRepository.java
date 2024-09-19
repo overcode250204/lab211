@@ -76,14 +76,14 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
         return result;
     }
 
-    // Đọc dữ liệu từ file và lưu vào Repository
+    
     public void readDataFromFile(String fileName) {
         try {
             File f = new File(fileName);
             if (!f.exists()) {
                 return;
             }
-            // Tạo luồng đọc dữ liệu
+            
             FileReader fr = new FileReader(f);
             BufferedReader bfr = new BufferedReader(fr);
 
@@ -92,19 +92,19 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
             while ((line = bfr.readLine()) != null) {
                 StringTokenizer stk = new StringTokenizer(line, ",");
 
-                // Cắt các thông tin thành phần
+                
                 String id = stk.nextToken().trim();
                 String name = stk.nextToken().trim();
                 String brand_id = stk.nextToken().trim();
                 String category_id = stk.nextToken().trim();
                 String model_year = stk.nextToken().trim();
                 String list_price = stk.nextToken().trim();
-                // Tái tạo Java Object
+                
                 int intModelYear = Integer.parseInt(model_year.trim());
                 double doubleListPrice = Double.parseDouble(list_price.trim());
                 Product product = new Product(id, name, brand_id, category_id, intModelYear, doubleListPrice);
 
-                // Đưa object vào Repository
+                
                 this.create(product);
             }
 
@@ -121,13 +121,13 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
         }
         try {
 
-            // Ghi file
+            
             File f = new File(fileName);
             
-            // Tạo ra luồng ghi file
+            
             FileWriter fw = new FileWriter(f);
 
-            // Tạo ra đối tượng ghi file xuống storage
+            
             PrintWriter pw = new PrintWriter(fw);
 
             for (Entry<String, Product> entry : this.entrySet()) {

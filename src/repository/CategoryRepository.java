@@ -82,14 +82,14 @@ public class CategoryRepository extends HashMap<String, Category> implements I_C
         return result;
     }
     
-    // Đọc dữ liệu từ file và lưu vào Repository
+    
     public void readDataFromFile(String fileName) {
         try {
             File f = new File(fileName);
             if (!f.exists()) {
                 return;
             }
-            // Tạo luồng đọc dữ liệu
+            
             FileReader fr = new FileReader(f);
             BufferedReader bfr = new BufferedReader(fr);
 
@@ -98,14 +98,14 @@ public class CategoryRepository extends HashMap<String, Category> implements I_C
             while ((line = bfr.readLine()) != null) {
                 StringTokenizer stk = new StringTokenizer(line, ",");
 
-                // Cắt các thông tin thành phần
-                String _id = stk.nextToken();
-                String _name = stk.nextToken();
+               
+                String id = stk.nextToken();
+                String name = stk.nextToken();
 
-                // Tái tạo Java Object
-                Category category = new Category(_id, _name);
+                
+                Category category = new Category(id, name);
 
-                // Đưa object vào Repository
+                
                 this.create(category);
             }
 
@@ -122,13 +122,13 @@ public class CategoryRepository extends HashMap<String, Category> implements I_C
             return;
         }
         try {
-            // Ghi file
+            
             File f = new File(fileName);
 
-            // Tạo ra luồng ghi file
+           
             FileWriter fw = new FileWriter(f);
 
-            // Tạo ra đối tượng ghi file xuống storage
+            
             PrintWriter pw = new PrintWriter(fw);
 
             for (Map.Entry<String, Category> entry : this.entrySet()) {
