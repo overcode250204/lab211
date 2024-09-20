@@ -42,6 +42,9 @@ public class MainProgram {
                     do {
                         if (productBusiness.addProduct() == 1) {
                             modified = true;
+                            Utils.display("Success!!!");
+                        } else {
+                            Utils.display("Failure");
                         }
                         checkLoop = menuApp.confirmYesNo("Do you want to back to the menu ? (Y/N)");
                     } while (!checkLoop);
@@ -83,11 +86,7 @@ public class MainProgram {
                     }
                     break;
                 case 6:
-                    if (!modified) {
                         productBusiness.showProductListByPriceAndName();
-                    } else {
-                        Utils.display("You already have modified program!!! Need to save to print out!!!");
-                    }
                     break;
                 case 7:
                     exit = Utils.getString("Do you want to exit? (Y/N)");

@@ -121,9 +121,7 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
         }
         try {
 
-            
             File f = new File(fileName);
-            
             
             FileWriter fw = new FileWriter(f);
 
@@ -131,11 +129,9 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
             PrintWriter pw = new PrintWriter(fw);
 
             for (Entry<String, Product> entry : this.entrySet()) {
-                System.out.println();
                 Product item = entry.getValue();
                 pw.println(item.getId() + ", " + item.getName() + ", " + item.getBrand_id() + ", " + item.getCategory_id() + ", " + item.getModel_year() + ", " + item.getList_price());
             }
-
             pw.close();
             fw.close();
         } catch (Exception ex) {

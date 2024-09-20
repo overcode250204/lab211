@@ -78,8 +78,11 @@ public class ProductBusiness {
         try {
             productCount = productRepository.size() + 1;
 
-            id = "B" + (productCount < 10 ? "00" : productCount < 100 ? "0" : "") + productCount;
-
+            id = "P" + (productCount < 10 ? "00" : productCount < 100 ? "0" : "") + productCount;
+            while (productRepository.containsKey(id)) {
+                productCount--;
+                id = "P" + (productCount < 10 ? "00" : productCount < 100 ? "0" : "") + productCount;
+            }
             name = Utils.getString("Enter product name: ");
 
             do {
@@ -262,7 +265,6 @@ public class ProductBusiness {
 
     public void showProductListByPriceAndName() {
         try {
-            productRepository.readDataFromFile("Product.txt");
             List<Product> products = new ArrayList<>(productRepository.values());
             if (!products.isEmpty()) {
                 Collections.sort(products, new Comparator<Product>() {
