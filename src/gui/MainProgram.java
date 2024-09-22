@@ -50,7 +50,7 @@ public class MainProgram {
                     } while (!checkLoop);
                     break;
                 case 2:
-                    do {                      
+                    do {
                         productBusiness.showProductList(productBusiness.searchProductByName(Utils.getString("Enter product name: ")));
                         checkLoop = menuApp.confirmYesNo("Do you want to back to the menu ? (Y/N)");
                     } while (!checkLoop);
@@ -86,15 +86,18 @@ public class MainProgram {
                     }
                     break;
                 case 6:
-                        productBusiness.showProductListByPriceAndName();
+                    productBusiness.showProductListByPriceAndName();
                     break;
                 case 7:
+                    
                     exit = Utils.getString("Do you want to exit? (Y/N)");
                     if ("Y".equalsIgnoreCase(exit)) {
-                        if (!modified) {                     
-                            loop = false;
+                        if (modified) {
+                            if ("Y".equalsIgnoreCase(Utils.getString("You already have modified program!!! (NOTE: If you don't want to save anything press Y!)"))) {
+                                loop = false;
+                            } 
                         } else {
-                            Utils.display("You already have modified program!!! Need to save before exit!!!");
+                            loop = false;
                         }
                     }
                     break;
