@@ -76,14 +76,13 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
         return result;
     }
 
-    
     public void readDataFromFile(String fileName) {
         try {
             File f = new File(fileName);
             if (!f.exists()) {
                 return;
             }
-            
+
             FileReader fr = new FileReader(f);
             BufferedReader bfr = new BufferedReader(fr);
 
@@ -92,19 +91,17 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
             while ((line = bfr.readLine()) != null) {
                 StringTokenizer stk = new StringTokenizer(line, ",");
 
-                
                 String id = stk.nextToken().trim();
                 String name = stk.nextToken().trim();
                 String brand_id = stk.nextToken().trim();
                 String category_id = stk.nextToken().trim();
                 String model_year = stk.nextToken().trim();
                 String list_price = stk.nextToken().trim();
-                
+
                 int intModelYear = Integer.parseInt(model_year.trim());
                 double doubleListPrice = Double.parseDouble(list_price.trim());
                 Product product = new Product(id, name, brand_id, category_id, intModelYear, doubleListPrice);
 
-                
                 this.create(product);
             }
 
@@ -122,10 +119,9 @@ public class ProductRepository extends HashMap<String, Product> implements I_CRU
         try {
 
             File f = new File(fileName);
-            
+
             FileWriter fw = new FileWriter(f);
 
-            
             PrintWriter pw = new PrintWriter(fw);
 
             for (Entry<String, Product> entry : this.entrySet()) {

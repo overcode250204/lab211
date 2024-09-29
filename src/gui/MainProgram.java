@@ -5,8 +5,6 @@
  */
 package gui;
 
-import business.BrandBusiness;
-import business.CategoryBusiness;
 import business.ProductBusiness;
 import utils.Utils;
 
@@ -22,8 +20,6 @@ public class MainProgram {
         boolean checkLoop = false;
         boolean modified = false;
         String exit = "";
-        CategoryBusiness categoryBusiness = new CategoryBusiness();
-        BrandBusiness brandBusiness = new BrandBusiness();
         ProductBusiness productBusiness = new ProductBusiness();
         Menu menuApp = new Menu();
         menuApp.add("1. Create a product");

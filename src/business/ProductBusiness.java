@@ -128,7 +128,7 @@ public class ProductBusiness {
             } while (!check);
 
             model_year = Utils.getInt("Enter model year: ", 1950, 2024);
-            list_price = Utils.getInt("Enter list price: ", 1000, 100000);
+            list_price = Utils.getInt("Enter list price: ", 1000, 900000);
 
             Product product = new Product(id, name, brand_id, category_id, model_year, list_price);
 
@@ -150,7 +150,7 @@ public class ProductBusiness {
                         result.add(product);
                     }
                 }
-            }
+            }           
             if (!result.isEmpty()) {
                 Collections.sort(result, new Comparator<Product>() {
                     @Override

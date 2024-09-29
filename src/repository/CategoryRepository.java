@@ -13,7 +13,6 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
-import model.Brand;
 import model.Category;
 
 /**
